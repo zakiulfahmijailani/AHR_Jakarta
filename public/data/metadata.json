@@ -1,0 +1,21 @@
+{
+  "dibuat_utc": "2026-08-05T07:33:37.864840+00:00",
+  "cakupan_bbox_wgs84": [
+    106.65,
+    -6.48,
+    107.2,
+    -5.95
+  ],
+  "crs_analisis": "EPSG:32748",
+  "buffer_meter": [
+    500,
+    700,
+    1000
+  ],
+  "sumber_jaringan_dan_kandidat": "OpenStreetMap contributors, ODbL 1.0",
+  "catatan": "Kandidat OSM bukan bukti status sewa. Harga/kontak hanya dari input listing.",
+  "jumlah_segmen_network": 191,
+  "jumlah_stasiun": 32,
+  "jumlah_kandidat_osm": 3195,
+  "jumlah_listing_sewa_1km": 0
+}
