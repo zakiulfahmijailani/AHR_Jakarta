@@ -103,6 +103,10 @@ export default function WebGIS() {
     });
 
     mapRef.current = map;
+    (window as typeof window & { __AHR_MAP__?: MapLibreMap }).__AHR_MAP__ = map;
+    map.on("error", (event) => {
+      console.error("MapLibre layer error:", event.error?.message || event);
+    });
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
     map.addControl(new maplibregl.AttributionControl({ compact: true }), "bottom-right");
 
