@@ -1,9 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import * as maplibregl from "maplibre-gl";
-import type { GeoJSONSource, Map as MapLibreMap, Popup } from "maplibre-gl";
-import type { Feature, FeatureCollection, Point } from "geojson";
+import type { Feature, FeatureCollection, Geometry, Point } from "geojson";
+import type { GeoJSON as LeafletGeoJSON, Map as LeafletMap } from "leaflet";
 import { Building2, ExternalLink, House, MapPin, Navigation, Search, TrainFront, X } from "lucide-react";
 
 type AhrProperties = {
@@ -22,6 +21,8 @@ type AhrProperties = {
 
 type AhrFeature = Feature<Point, AhrProperties>;
 type AhrCollection = FeatureCollection<Point, AhrProperties>;
+type MapCollection = FeatureCollection<Geometry, Record<string, unknown>>;
+
 const EMPTY_COLLECTION: AhrCollection = { type: "FeatureCollection", features: [] };
 const formatNumber = new Intl.NumberFormat("id-ID");
 
@@ -37,10 +38,16 @@ function cleanText(value?: string, fallback = "Belum tersedia") {
   return String(value);
 }
 
+async function fetchLayer<T>(name: string): Promise<T> {
+  const response = await fetch(`/api/layers?name=${name}`);
+  if (!response.ok) throw new Error(`Layer ${name} gagal dimuat dari Neon.`);
+  return response.json() as Promise<T>;
+}
+
 export default function WebGIS() {
   const mapContainer = useRef<HTMLDivElement | null>(null);
-  const mapRef = useRef<MapLibreMap | null>(null);
-  const popupRef = useRef<Popup | null>(null);
+  const mapRef = useRef<LeafletMap | null>(null);
+  const ahrLayerRef = useRef<LeafletGeoJSON | null>(null);
   const allAhrRef = useRef<AhrCollection>(EMPTY_COLLECTION);
   const [ahr, setAhr] = useState<AhrCollection>(EMPTY_COLLECTION);
   const [stationsCount, setStationsCount] = useState(0);
@@ -58,181 +65,107 @@ export default function WebGIS() {
     if (!map) return;
     const [longitude, latitude] = feature.geometry.coordinates;
     setSelected(feature);
-    map.easeTo({ center: [longitude, latitude], zoom: Math.max(map.getZoom(), 15), duration: 700 });
-
-    const popupContent = document.createElement("div");
-    const title = document.createElement("strong");
-    title.textContent = cleanText(feature.properties.nama_ahr, "Kandidat AHR");
-    const distance = document.createElement("div");
-    distance.style.cssText = "margin-top:5px;color:#65716b;font-size:11px";
-    distance.textContent = `${Math.round(Number(feature.properties.jarak_ke_jalur_m || 0))} m dari jalur`;
-    popupContent.append(title, distance);
-
-    popupRef.current?.remove();
-    popupRef.current = new maplibregl.Popup({ offset: 14, closeButton: false })
-      .setLngLat([longitude, latitude])
-      .setDOMContent(popupContent)
-      .addTo(map);
+    map.flyTo([latitude, longitude], Math.max(map.getZoom(), 15), { duration: 0.7 });
   }, []);
 
   useEffect(() => {
     if (!mapContainer.current || mapRef.current) return;
 
-    const map = new maplibregl.Map({
-      container: mapContainer.current,
-      center: [106.855, -6.245],
-      zoom: 10.7,
-      minZoom: 9,
-      maxZoom: 19,
-      attributionControl: false,
-      style: {
-        version: 8,
-        sources: {
-          carto: {
-            type: "raster",
-            tiles: [
-              "https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png",
-              "https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png",
-            ],
-            tileSize: 512,
-            attribution: "© OpenStreetMap contributors © CARTO",
-          },
-        },
-        layers: [{ id: "carto", type: "raster", source: "carto" }],
-      },
-    });
+    let disposed = false;
+    let localMap: LeafletMap | null = null;
 
-    mapRef.current = map;
-    (window as typeof window & { __AHR_MAP__?: MapLibreMap }).__AHR_MAP__ = map;
-    map.on("error", (event) => {
-      console.error("MapLibre layer error:", event.error?.message || event);
-    });
-    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
-    map.addControl(new maplibregl.AttributionControl({ compact: true }), "bottom-right");
-
-    map.on("load", async () => {
+    async function initializeMap() {
       try {
-        const [ahrResponse, networkResponse, buffersResponse, stationsResponse] = await Promise.all([
-          fetch("/api/layers?name=ahr"),
-          fetch("/api/layers?name=network"),
-          fetch("/api/layers?name=buffers"),
-          fetch("/api/layers?name=stations"),
-        ]);
-        if (![ahrResponse, networkResponse, buffersResponse, stationsResponse].every((response) => response.ok)) {
-          throw new Error("Sebagian data peta tidak dapat dimuat.");
-        }
+        const L = await import("leaflet");
+        if (disposed || !mapContainer.current) return;
+
+        const map = L.map(mapContainer.current, {
+          center: [-6.245, 106.855],
+          zoom: 11,
+          minZoom: 9,
+          maxZoom: 19,
+          preferCanvas: true,
+          zoomControl: false,
+        });
+        localMap = map;
+        mapRef.current = map;
+
+        L.control.zoom({ position: "topright" }).addTo(map);
+        L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png", {
+          subdomains: "abcd",
+          maxZoom: 19,
+          attribution: "© OpenStreetMap contributors © CARTO",
+        }).addTo(map);
 
         const [ahrData, networkData, buffersData, stationsData] = await Promise.all([
-          ahrResponse.json() as Promise<AhrCollection>,
-          networkResponse.json(),
-          buffersResponse.json(),
-          stationsResponse.json(),
+          fetchLayer<AhrCollection>("ahr"),
+          fetchLayer<MapCollection>("network"),
+          fetchLayer<MapCollection>("buffers"),
+          fetchLayer<MapCollection>("stations"),
         ]);
+        if (disposed) return;
 
         allAhrRef.current = ahrData;
         setAhr(ahrData);
-        setStationsCount(stationsData.features?.length || 0);
+        setStationsCount(stationsData.features.length);
         setServices([...new Set(ahrData.features.map((feature) => cleanText(feature.properties.layanan_terdekat, "Lainnya")))].sort());
 
-        map.addSource("buffers", { type: "geojson", data: buffersData });
-        [1000, 700, 500].forEach((distanceValue) => {
-          const color = distanceValue === 500 ? "#ee6c36" : distanceValue === 700 ? "#e4a72b" : "#3687b8";
-          map.addLayer({
-            id: `buffer-${distanceValue}`,
-            type: "fill",
-            source: "buffers",
-            filter: ["==", ["get", "buffer_m"], distanceValue],
-            paint: { "fill-color": color, "fill-opacity": 0.07, "fill-outline-color": color },
-          });
-        });
-
-        map.addSource("network", { type: "geojson", data: networkData });
-        map.addLayer({ id: "network-line-halo", type: "line", source: "network", paint: { "line-color": "#ffffff", "line-width": 7, "line-opacity": 0.9 } });
-        map.addLayer({
-          id: "network-line",
-          type: "line",
-          source: "network",
-          paint: { "line-color": ["case", ["in", "MRT", ["get", "service"]], "#0b6b4f", "#7047a3"], "line-width": 4 },
-        });
-
-        map.addSource("stations", { type: "geojson", data: stationsData });
-        map.addLayer({
-          id: "stations",
-          type: "circle",
-          source: "stations",
-          paint: {
-            "circle-radius": ["interpolate", ["linear"], ["zoom"], 10, 3, 14, 6],
-            "circle-color": "#ffffff",
-            "circle-stroke-color": "#17211d",
-            "circle-stroke-width": 2.5,
+        L.geoJSON(buffersData, {
+          style: (feature) => {
+            const distanceValue = Number(feature?.properties?.buffer_m || 1000);
+            const color = distanceValue === 500 ? "#ee6c36" : distanceValue === 700 ? "#e4a72b" : "#3687b8";
+            return { color, weight: 1.5, fillColor: color, fillOpacity: 0.09 };
           },
-        });
+        }).addTo(map);
 
-        map.addSource("ahr", { type: "geojson", data: ahrData, cluster: true, clusterRadius: 44, clusterMaxZoom: 14 });
-        map.addLayer({
-          id: "ahr-clusters",
-          type: "circle",
-          source: "ahr",
-          filter: ["has", "point_count"],
-          paint: {
-            "circle-color": ["step", ["get", "point_count"], "#b8dfcf", 30, "#56a98a", 120, "#0b6b4f"],
-            "circle-radius": ["step", ["get", "point_count"], 15, 30, 20, 120, 27],
-            "circle-stroke-color": "#ffffff",
-            "circle-stroke-width": 2,
-          },
-        });
-        map.addLayer({
-          id: "ahr-cluster-count",
-          type: "symbol",
-          source: "ahr",
-          filter: ["has", "point_count"],
-          layout: { "text-field": ["get", "point_count_abbreviated"], "text-size": 11 },
-          paint: { "text-color": "#ffffff" },
-        });
-        map.addLayer({
-          id: "ahr-unclustered",
-          type: "circle",
-          source: "ahr",
-          filter: ["!", ["has", "point_count"]],
-          paint: {
-            "circle-radius": ["interpolate", ["linear"], ["zoom"], 11, 3.5, 16, 7],
-            "circle-color": "#ee6c36",
-            "circle-stroke-color": "#ffffff",
-            "circle-stroke-width": 1.5,
-          },
-        });
+        L.geoJSON(networkData, {
+          style: (feature) => ({
+            color: String(feature?.properties?.service || "").includes("MRT") ? "#0b6b4f" : "#7047a3",
+            weight: 5,
+            opacity: 0.95,
+          }),
+        }).addTo(map);
 
-        map.on("click", "ahr-clusters", async (event) => {
-          const cluster = map.queryRenderedFeatures(event.point, { layers: ["ahr-clusters"] })[0];
-          if (!cluster) return;
-          const clusterId = Number(cluster.properties?.cluster_id);
-          const source = map.getSource("ahr") as GeoJSONSource;
-          const zoom = await source.getClusterExpansionZoom(clusterId);
-          const coordinates = (cluster.geometry as Point).coordinates as [number, number];
-          map.easeTo({ center: coordinates, zoom });
-        });
-        map.on("click", "ahr-unclustered", (event) => {
-          const feature = event.features?.[0] as unknown as AhrFeature | undefined;
-          if (feature) showFeature(feature);
-        });
-        ["ahr-clusters", "ahr-unclustered", "stations"].forEach((layer) => {
-          map.on("mouseenter", layer, () => { map.getCanvas().style.cursor = "pointer"; });
-          map.on("mouseleave", layer, () => { map.getCanvas().style.cursor = ""; });
-        });
-        map.fitBounds([[106.74, -6.43], [107.15, -6.14]], {
-          padding: { top: 36, right: 36, bottom: 36, left: 36 },
-          duration: 0,
-        });
+        L.geoJSON(stationsData, {
+          pointToLayer: (_feature, latlng) => L.circleMarker(latlng, {
+            radius: 5,
+            color: "#17211d",
+            weight: 2,
+            fillColor: "#ffffff",
+            fillOpacity: 1,
+          }),
+        }).addTo(map);
+
+        const sharedCanvas = L.canvas({ padding: 0.5 });
+        const ahrLayer = L.geoJSON(ahrData, {
+          pointToLayer: (_feature, latlng) => L.circleMarker(latlng, {
+            renderer: sharedCanvas,
+            radius: 4,
+            color: "#ffffff",
+            weight: 1,
+            fillColor: "#ee6c36",
+            fillOpacity: 0.9,
+          }),
+          onEachFeature: (feature, layer) => {
+            layer.on("click", () => showFeature(feature as AhrFeature));
+          },
+        }).addTo(map);
+        ahrLayerRef.current = ahrLayer;
+
+        map.fitBounds([[-6.43, 106.74], [-6.14, 107.15]], { padding: [32, 32] });
+        window.setTimeout(() => map.invalidateSize(), 50);
         setLoading(false);
       } catch (loadError) {
         setError(loadError instanceof Error ? loadError.message : "Data peta gagal dimuat.");
         setLoading(false);
       }
-    });
+    }
 
+    initializeMap();
     return () => {
-      popupRef.current?.remove();
-      map.remove();
+      disposed = true;
+      ahrLayerRef.current = null;
+      localMap?.remove();
       mapRef.current = null;
     };
   }, [showFeature]);
@@ -249,8 +182,8 @@ export default function WebGIS() {
     });
     const nextCollection: AhrCollection = { type: "FeatureCollection", features: filtered };
     setAhr(nextCollection);
-    const source = mapRef.current?.getSource("ahr") as GeoJSONSource | undefined;
-    source?.setData(nextCollection);
+    ahrLayerRef.current?.clearLayers();
+    ahrLayerRef.current?.addData(nextCollection);
   }, [buffer, query, service, type]);
 
   const visibleResults = useMemo(() => ahr.features.slice(0, 60), [ahr]);
@@ -331,7 +264,7 @@ export default function WebGIS() {
 
           {selected && (
             <article className="detail-card">
-              <button className="detail-close" aria-label="Tutup detail" onClick={() => { setSelected(null); popupRef.current?.remove(); }}><X size={15} /></button>
+              <button className="detail-close" aria-label="Tutup detail" onClick={() => setSelected(null)}><X size={15} /></button>
               <span className="detail-kicker">{cleanText(selected.properties.tipe_ahr, "Hunian")}</span>
               <h2>{cleanText(selected.properties.nama_ahr, "Kandidat AHR")}</h2>
               <p className="detail-address"><MapPin size={11} style={{ verticalAlign: "-2px", marginRight: 3 }} />{cleanText(selected.properties.alamat)}</p>
