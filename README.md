@@ -2,6 +2,8 @@
 
 WebGIS sederhana untuk menjelajahi kandidat apartemen, hunian, dan rumah dalam koridor 500 meter, 700 meter, dan 1 kilometer dari jaringan MRT Jakarta dan LRT Jabodebek.
 
+Layer GeoJSON disimpan sebagai JSONB di Neon Postgres dan disajikan melalui API Vercel dengan cache CDN.
+
 ## Fitur
 
 - Peta interaktif dan pengelompokan titik AHR.

@@ -109,10 +109,10 @@ export default function WebGIS() {
     map.on("load", async () => {
       try {
         const [ahrResponse, networkResponse, buffersResponse, stationsResponse] = await Promise.all([
-          fetch("/data/ahr_kandidat_osm.geojson"),
-          fetch("/data/network_mrt_lrt.geojson"),
-          fetch("/data/buffers_500_700_1000m.geojson"),
-          fetch("/data/stations.geojson"),
+          fetch("/api/layers?name=ahr"),
+          fetch("/api/layers?name=network"),
+          fetch("/api/layers?name=buffers"),
+          fetch("/api/layers?name=stations"),
         ]);
         if (![ahrResponse, networkResponse, buffersResponse, stationsResponse].every((response) => response.ok)) {
           throw new Error("Sebagian data peta tidak dapat dimuat.");
@@ -214,6 +214,10 @@ export default function WebGIS() {
         ["ahr-clusters", "ahr-unclustered", "stations"].forEach((layer) => {
           map.on("mouseenter", layer, () => { map.getCanvas().style.cursor = "pointer"; });
           map.on("mouseleave", layer, () => { map.getCanvas().style.cursor = ""; });
+        });
+        map.fitBounds([[106.74, -6.43], [107.15, -6.14]], {
+          padding: { top: 36, right: 36, bottom: 36, left: 36 },
+          duration: 0,
         });
         setLoading(false);
       } catch (loadError) {
