@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Feature, FeatureCollection, Geometry, Point } from "geojson";
 import type { GeoJSON as LeafletGeoJSON, Map as LeafletMap } from "leaflet";
-import { Building2, ExternalLink, House, MapPin, Navigation, Phone, Search, ShieldCheck, TrainFront, X } from "lucide-react";
+import { Building2, ExternalLink, House, MapPin, Phone, Search, ShieldCheck, TrainFront, X } from "lucide-react";
 
 type AhrProperties = {
   nama_ahr?: string;
@@ -17,6 +17,7 @@ type AhrProperties = {
   google_maps_url?: string;
   google_maps_pin_url?: string;
   google_directions_url?: string;
+  google_place_id?: string;
   tingkat_kepercayaan?: "tinggi" | "menengah";
   status_verifikasi?: string;
   sumber_kontak?: string;
@@ -44,6 +45,17 @@ function propertyGroup(value = "") {
 function cleanText(value?: string, fallback = "Belum tersedia") {
   if (!value || ["<NA>", "nan", "None"].includes(String(value))) return fallback;
   return String(value);
+}
+
+function googlePlacePageUrl(feature: AhrFeature) {
+  const properties = feature.properties;
+  const name = cleanText(properties.nama_ahr, "").trim();
+  const address = cleanText(properties.alamat, "").trim();
+  const query = [name, address, "Jakarta, Indonesia"].filter(Boolean).join(", ");
+  const baseUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+  return properties.google_place_id
+    ? `${baseUrl}&query_place_id=${encodeURIComponent(properties.google_place_id)}`
+    : baseUrl;
 }
 
 async function fetchLayer<T>(name: string): Promise<T> {
@@ -304,8 +316,7 @@ export default function WebGIS() {
                 <div className="contact-box missing"><span>Nomor belum tersedia dari sumber gratis</span><small>Buka Google Maps untuk memeriksa nomor pengelola terbaru.</small></div>
               )}
               <div className="detail-actions">
-                <a className="action-link" href={selected.properties.google_maps_url || selected.properties.google_maps_pin_url} target="_blank" rel="noreferrer"><ExternalLink size={14} /> {selected.properties.kontak_telepon ? "Google Maps" : "Cari kontak"}</a>
-                <a className="action-link secondary" href={selected.properties.google_directions_url} target="_blank" rel="noreferrer"><Navigation size={14} /> Petunjuk arah</a>
+                <a className="action-link full" href={googlePlacePageUrl(selected)} target="_blank" rel="noreferrer"><ExternalLink size={14} /> Lihat ulasan & info Google Maps</a>
                 {(selected.properties.url_kontak || selected.properties.url_resmi) && <a className="action-link secondary full" href={selected.properties.url_kontak || selected.properties.url_resmi} target="_blank" rel="noreferrer"><ExternalLink size={14} /> Sumber resmi</a>}
               </div>
               <p className="data-note">Data telah disaring dari kandidat OSM. Nomor hanya ditampilkan bila ditemukan pada sumber publik gratis; periksa kembali sebelum menghubungi.</p>
