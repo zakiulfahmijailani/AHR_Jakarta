@@ -147,7 +147,7 @@ export default function WebGIS() {
 
         const sharedCanvas = L.canvas({ padding: 0.5 });
         const ahrLayer = L.geoJSON(ahrData, {
-          pointToLayer: (_feature, latlng) => L.circleMarker(latlng, {
+          pointToLayer: (feature, latlng) => L.circleMarker(latlng, {
             renderer: sharedCanvas,
             radius: 4,
             color: "#ffffff",
