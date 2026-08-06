@@ -33,6 +33,7 @@ type AhrCollection = FeatureCollection<Point, AhrProperties>;
 type MapCollection = FeatureCollection<Geometry, Record<string, unknown>>;
 
 const EMPTY_COLLECTION: AhrCollection = { type: "FeatureCollection", features: [] };
+const DATA_VERSION = "2026-08-06-ahr-strict-1";
 const formatNumber = new Intl.NumberFormat("id-ID");
 
 function propertyGroup(value = "") {
@@ -59,7 +60,7 @@ function googlePlacePageUrl(feature: AhrFeature) {
 }
 
 async function fetchLayer<T>(name: string): Promise<T> {
-  const response = await fetch(`/api/layers?name=${name}`);
+  const response = await fetch(`/api/layers?name=${name}&v=${DATA_VERSION}`);
   if (!response.ok) throw new Error(`Layer ${name} gagal dimuat dari Neon.`);
   return response.json() as Promise<T>;
 }

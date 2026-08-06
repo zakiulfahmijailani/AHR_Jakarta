@@ -16,7 +16,7 @@ export default async function handler(request: any, response: any) {
     const rows = await sql`SELECT geojson FROM webgis_layers WHERE name = ${name} LIMIT 1`;
     if (!rows.length) return response.status(404).json({ error: "Layer tidak ditemukan." });
 
-    response.setHeader("Cache-Control", "public, max-age=300, s-maxage=86400, stale-while-revalidate=604800");
+    response.setHeader("Cache-Control", "public, max-age=60, s-maxage=300, stale-while-revalidate=600");
     response.setHeader("Content-Type", "application/geo+json; charset=utf-8");
     return response.status(200).json(rows[0].geojson);
   } catch (error) {
