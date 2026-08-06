@@ -1,20 +1,28 @@
 # AHR Jakarta WebGIS
 
-WebGIS sederhana untuk menjelajahi kandidat apartemen, hunian, dan rumah dalam koridor 500 meter, 700 meter, dan 1 kilometer dari jaringan MRT Jakarta dan LRT Jabodebek.
+WebGIS sederhana untuk menjelajahi apartemen, hunian, dan rumah terkurasi dalam koridor 500 meter, 700 meter, dan 1 kilometer dari jaringan MRT Jakarta dan LRT Jabodebek.
 
 Layer GeoJSON disimpan sebagai JSONB di Neon Postgres dan disajikan melalui API Vercel dengan cache CDN.
 
 ## Fitur
 
-- Peta interaktif dan pengelompokan titik AHR.
-- Filter jarak, jenis hunian, dan layanan terdekat.
+- Peta interaktif dengan 252 titik AHR bernama hasil penyaringan 3.195 kandidat mentah.
+- Filter jarak, jenis hunian, layanan terdekat, dan ketersediaan kontak.
 - Pencarian nama atau alamat.
-- Panel detail dengan tautan Google Maps dan petunjuk arah.
+- Panel detail dengan nomor telepon publik yang terverifikasi, sumber resmi, Google Maps, dan petunjuk arah.
 - Tampilan responsif untuk desktop dan perangkat seluler.
 
 ## Data
 
-Data jaringan, stasiun, buffer, dan kandidat AHR berasal dari OpenStreetMap dan hasil pengolahan notebook AHR MRT/LRT. Kandidat AHR bukan bukti status sewa. Cantumkan atribusi © OpenStreetMap contributors (ODbL) ketika data digunakan kembali.
+Data jaringan, stasiun, buffer, dan kandidat awal berasal dari OpenStreetMap dan hasil pengolahan notebook AHR MRT/LRT. Objek umum, kandidat tanpa nama, dan tipe non-hunian dikeluarkan dari layer WebGIS. Kontak hanya diambil dari sumber publik gratis yang dicantumkan pada setiap objek; ketersediaannya tidak dijamin. Cantumkan atribusi © OpenStreetMap contributors (ODbL) ketika data digunakan kembali.
+
+Untuk mereproduksi layer gratis:
+
+```bash
+node scripts/clean-ahr.mjs
+node scripts/enrich-osm-contacts.mjs
+node scripts/apply-free-contacts.mjs
+```
 
 ## Menjalankan secara lokal
 

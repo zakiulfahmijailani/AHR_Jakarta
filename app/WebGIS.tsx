@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Feature, FeatureCollection, Geometry, Point } from "geojson";
 import type { GeoJSON as LeafletGeoJSON, Map as LeafletMap } from "leaflet";
-import { Building2, ExternalLink, House, MapPin, Navigation, Search, TrainFront, X } from "lucide-react";
+import { Building2, ExternalLink, House, MapPin, Navigation, Phone, Search, ShieldCheck, TrainFront, X } from "lucide-react";
 
 type AhrProperties = {
   nama_ahr?: string;
@@ -17,6 +17,14 @@ type AhrProperties = {
   google_maps_url?: string;
   google_maps_pin_url?: string;
   google_directions_url?: string;
+  tingkat_kepercayaan?: "tinggi" | "menengah";
+  status_verifikasi?: string;
+  sumber_kontak?: string;
+  jenis_kontak?: string;
+  kontak_tambahan?: string[];
+  url_resmi?: string;
+  url_kontak?: string;
+  tanggal_verifikasi_kontak?: string;
 };
 
 type AhrFeature = Feature<Point, AhrProperties>;
@@ -57,6 +65,7 @@ export default function WebGIS() {
   const [buffer, setBuffer] = useState(1000);
   const [type, setType] = useState("semua");
   const [service, setService] = useState("semua");
+  const [contact, setContact] = useState("semua");
   const [services, setServices] = useState<string[]>([]);
   const [selected, setSelected] = useState<AhrFeature | null>(null);
 
@@ -127,7 +136,7 @@ export default function WebGIS() {
         }).addTo(map);
 
         L.geoJSON(stationsData, {
-          pointToLayer: (_feature, latlng) => L.circleMarker(latlng, {
+          pointToLayer: (feature, latlng) => L.circleMarker(latlng, {
             radius: 5,
             color: "#17211d",
             weight: 2,
@@ -143,7 +152,7 @@ export default function WebGIS() {
             radius: 4,
             color: "#ffffff",
             weight: 1,
-            fillColor: "#ee6c36",
+            fillColor: feature?.properties?.tingkat_kepercayaan === "tinggi" ? "#0b7a59" : "#ee6c36",
             fillOpacity: 0.9,
           }),
           onEachFeature: (feature, layer) => {
@@ -177,16 +186,19 @@ export default function WebGIS() {
       const distanceMatch = Number(properties.jarak_ke_jalur_m || 0) <= buffer;
       const typeMatch = type === "semua" || propertyGroup(properties.tipe_ahr) === type;
       const serviceMatch = service === "semua" || cleanText(properties.layanan_terdekat, "Lainnya") === service;
-      const searchText = `${properties.nama_ahr || ""} ${properties.alamat || ""}`.toLowerCase();
-      return distanceMatch && typeMatch && serviceMatch && (!normalizedQuery || searchText.includes(normalizedQuery));
+      const hasContact = Boolean(properties.kontak_telepon);
+      const contactMatch = contact === "semua" || (contact === "tersedia" ? hasContact : !hasContact);
+      const searchText = `${properties.nama_ahr || ""} ${properties.alamat || ""} ${properties.kontak_telepon || ""}`.toLowerCase();
+      return distanceMatch && typeMatch && serviceMatch && contactMatch && (!normalizedQuery || searchText.includes(normalizedQuery));
     });
     const nextCollection: AhrCollection = { type: "FeatureCollection", features: filtered };
     setAhr(nextCollection);
     ahrLayerRef.current?.clearLayers();
     ahrLayerRef.current?.addData(nextCollection);
-  }, [buffer, query, service, type]);
+  }, [buffer, contact, query, service, type]);
 
   const visibleResults = useMemo(() => ahr.features.slice(0, 60), [ahr]);
+  const contactsCount = useMemo(() => allAhrRef.current.features.filter((feature) => feature.properties.kontak_telepon).length, [ahr]);
 
   return (
     <main className="app-shell">
@@ -197,6 +209,7 @@ export default function WebGIS() {
         </div>
         <div className="top-stats" aria-label="Ringkasan data">
           <div className="top-stat"><strong>{formatNumber.format(ahr.features.length)}</strong><span>AHR terlihat</span></div>
+          <div className="top-stat"><strong>{formatNumber.format(contactsCount)}</strong><span>Nomor kontak</span></div>
           <div className="top-stat"><strong>{formatNumber.format(stationsCount)}</strong><span>Stasiun</span></div>
           <div className="top-stat"><strong>{buffer} m</strong><span>Koridor</span></div>
         </div>
@@ -229,10 +242,16 @@ export default function WebGIS() {
                   <option value="semua">Semua MRT & LRT</option>{services.map((item) => <option key={item} value={item}>{item}</option>)}
                 </select>
               </div>
+              <div className="field" style={{ gridColumn: "1 / -1" }}>
+                <label htmlFor="contact">Ketersediaan kontak</label>
+                <select id="contact" className="select" value={contact} onChange={(event) => setContact(event.target.value)}>
+                  <option value="semua">Semua AHR terkurasi</option><option value="tersedia">Nomor tersedia</option><option value="cari">Cari melalui Google Maps</option>
+                </select>
+              </div>
             </div>
           </div>
 
-          <div className="result-head"><h2>Kandidat AHR</h2><span>Maks. 60 hasil ditampilkan</span></div>
+          <div className="result-head"><h2>AHR terkurasi</h2><span>{contactsCount} nomor tersedia · maks. 60 hasil</span></div>
           <div className="result-list">
             {visibleResults.map((feature, index) => {
               const properties = feature.properties;
@@ -242,7 +261,7 @@ export default function WebGIS() {
                 <button className={`result-card${active ? " active" : ""}`} key={key} onClick={() => showFeature(feature)}>
                   <span className="result-icon">{propertyGroup(properties.tipe_ahr) === "rumah" ? <House size={16} /> : <Building2 size={16} />}</span>
                   <span className="result-main"><strong>{cleanText(properties.nama_ahr, "Kandidat AHR")}</strong><small>{cleanText(properties.alamat)} · {cleanText(properties.layanan_terdekat)}</small></span>
-                  <span className="distance">{Math.round(Number(properties.jarak_ke_jalur_m || 0))} m</span>
+                  <span className="distance">{properties.kontak_telepon && <Phone size={10} aria-label="Nomor tersedia" />}{Math.round(Number(properties.jarak_ke_jalur_m || 0))} m</span>
                 </button>
               );
             })}
@@ -258,7 +277,8 @@ export default function WebGIS() {
             <h3>Legenda</h3>
             <div className="legend-row"><span className="legend-swatch" style={{ background: "#0b6b4f" }} /> MRT Jakarta</div>
             <div className="legend-row"><span className="legend-swatch" style={{ background: "#7047a3" }} /> LRT Jabodebek</div>
-            <div className="legend-row"><span className="legend-dot" style={{ background: "#ee6c36" }} /> Kandidat AHR</div>
+            <div className="legend-row"><span className="legend-dot" style={{ background: "#0b7a59" }} /> Kepercayaan tinggi</div>
+            <div className="legend-row"><span className="legend-dot" style={{ background: "#ee6c36" }} /> Kepercayaan menengah</div>
             <div className="legend-row"><span className="legend-dot" style={{ background: "white", border: "2px solid #17211d" }} /> Stasiun</div>
           </div>
 
@@ -271,13 +291,24 @@ export default function WebGIS() {
               <div className="detail-grid">
                 <div className="detail-item"><span>Jarak</span><strong>{Math.round(Number(selected.properties.jarak_ke_jalur_m || 0))} m</strong></div>
                 <div className="detail-item"><span>Layanan</span><strong>{cleanText(selected.properties.layanan_terdekat)}</strong></div>
-                <div className="detail-item"><span>Status</span><strong>Perlu verifikasi</strong></div>
+                <div className="detail-item"><span>Kepercayaan</span><strong><ShieldCheck size={11} /> {cleanText(selected.properties.tingkat_kepercayaan)}</strong></div>
               </div>
+              {selected.properties.kontak_telepon ? (
+                <div className="contact-box">
+                  <span>{cleanText(selected.properties.jenis_kontak, "Kontak publik")}</span>
+                  <a href={`tel:${selected.properties.kontak_telepon.replace(/\s/g, "")}`}><Phone size={15} /> {selected.properties.kontak_telepon}</a>
+                  {selected.properties.kontak_tambahan?.length ? <small>Alternatif: {selected.properties.kontak_tambahan.join(" · ")}</small> : null}
+                  <small>Sumber: {cleanText(selected.properties.sumber_kontak)}</small>
+                </div>
+              ) : (
+                <div className="contact-box missing"><span>Nomor belum tersedia dari sumber gratis</span><small>Buka Google Maps untuk memeriksa nomor pengelola terbaru.</small></div>
+              )}
               <div className="detail-actions">
-                <a className="action-link" href={selected.properties.google_maps_url || selected.properties.google_maps_pin_url} target="_blank" rel="noreferrer"><ExternalLink size={14} /> Google Maps</a>
+                <a className="action-link" href={selected.properties.google_maps_url || selected.properties.google_maps_pin_url} target="_blank" rel="noreferrer"><ExternalLink size={14} /> {selected.properties.kontak_telepon ? "Google Maps" : "Cari kontak"}</a>
                 <a className="action-link secondary" href={selected.properties.google_directions_url} target="_blank" rel="noreferrer"><Navigation size={14} /> Petunjuk arah</a>
+                {(selected.properties.url_kontak || selected.properties.url_resmi) && <a className="action-link secondary full" href={selected.properties.url_kontak || selected.properties.url_resmi} target="_blank" rel="noreferrer"><ExternalLink size={14} /> Sumber resmi</a>}
               </div>
-              <p className="data-note">Kandidat berbasis OpenStreetMap, bukan bukti bahwa hunian sedang disewakan. Periksa profil Google Maps dan sumber sebelum menghubungi pihak terkait.</p>
+              <p className="data-note">Data telah disaring dari kandidat OSM. Nomor hanya ditampilkan bila ditemukan pada sumber publik gratis; periksa kembali sebelum menghubungi.</p>
             </article>
           )}
         </section>

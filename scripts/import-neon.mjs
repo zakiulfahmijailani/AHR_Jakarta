@@ -7,7 +7,7 @@ if (!process.env.DATABASE_URL) {
 
 const sql = neon(process.env.DATABASE_URL);
 const layers = {
-  ahr: "public/data/ahr_kandidat_osm.geojson",
+  ahr: "public/data/ahr_terkurasi_gratis.geojson",
   network: "public/data/network_mrt_lrt.geojson",
   buffers: "public/data/buffers_500_700_1000m.geojson",
   stations: "public/data/stations.geojson",

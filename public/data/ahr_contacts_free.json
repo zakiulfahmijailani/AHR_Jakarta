@@ -1,0 +1,29 @@
+[
+  {
+    "nama_ahr": "Arumaya Residences",
+    "kontak_telepon": "021 2782 5800",
+    "kontak_tambahan": ["0816 3333 51"],
+    "jenis_kontak": "kantor pemasaran",
+    "url_kontak": "https://sikumbang.tapera.go.id/lokasi-perumahan/KYB0610022022R001",
+    "sumber_kontak": "Sikumbang Tapera / situs resmi",
+    "tanggal_verifikasi_kontak": "2026-08-06"
+  },
+  {
+    "nama_ahr": "Apartemen Plaza Senayan",
+    "kontak_telepon": "021 572 3456",
+    "kontak_tambahan": ["021 572 3377", "021 2952 5522"],
+    "jenis_kontak": "leasing office; management office",
+    "url_kontak": "https://apartemenplazasenayan.com/",
+    "sumber_kontak": "situs resmi Apartemen Plaza Senayan",
+    "tanggal_verifikasi_kontak": "2026-08-06"
+  },
+  {
+    "nama_ahr": "South Hills",
+    "kontak_telepon": "021 2902 3300",
+    "kontak_tambahan": [],
+    "jenis_kontak": "pengelola",
+    "url_kontak": "https://southhills.co.id/contact.html",
+    "sumber_kontak": "situs resmi South Hills",
+    "tanggal_verifikasi_kontak": "2026-08-06"
+  }
+]

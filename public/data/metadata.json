@@ -13,9 +13,11 @@
     1000
   ],
   "sumber_jaringan_dan_kandidat": "OpenStreetMap contributors, ODbL 1.0",
-  "catatan": "Kandidat OSM bukan bukti status sewa. Harga/kontak hanya dari input listing.",
+  "catatan": "WebGIS menampilkan kandidat AHR bernama yang telah disaring dari objek OSM umum. Kontak hanya berasal dari sumber publik gratis dan perlu diperiksa kembali.",
   "jumlah_segmen_network": 191,
   "jumlah_stasiun": 32,
   "jumlah_kandidat_osm": 3195,
+  "jumlah_ahr_terkurasi": 252,
+  "jumlah_kontak_terverifikasi": 3,
   "jumlah_listing_sewa_1km": 0
 }
