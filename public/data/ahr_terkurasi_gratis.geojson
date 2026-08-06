@@ -5,108 +5,6 @@
     {
       "type": "Feature",
       "properties": {
-        "nama_ahr": "Komplek TNI AU Triloka (Main Entrance)",
-        "tipe_ahr": "residential",
-        "alamat": "Jalan Triloka",
-        "status_sewa": "belum terverifikasi (kandidat OSM)",
-        "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/node/4240929793",
-        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
-        "osm_type": "node",
-        "osm_id": "4240929793",
-        "jarak_ke_jalur_m": 280.9,
-        "dalam_500m": true,
-        "dalam_700m": true,
-        "dalam_1000m": true,
-        "layanan_terdekat": "LRT Jabodebek",
-        "latitude": -6.2461285,
-        "longitude": 106.8427251,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Komplek%20TNI%20AU%20Triloka%20(Main%20Entrance)%2C%20Jalan%20Triloka%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.2461285%2C106.8427251",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.2461285%2C106.8427251",
-        "tingkat_kepercayaan": "menengah",
-        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
-        "sumber_kontak": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.8427251,
-          -6.2461285
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama_ahr": "Perumahan Jakapermai",
-        "tipe_ahr": "residential",
-        "alamat": "Jalan Raya Kalimalang, Jaka Sampurna, Bekasi Barat",
-        "status_sewa": "belum terverifikasi (kandidat OSM)",
-        "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/node/4242432589",
-        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
-        "osm_type": "node",
-        "osm_id": "4242432589",
-        "jarak_ke_jalur_m": 248.2,
-        "dalam_500m": true,
-        "dalam_700m": true,
-        "dalam_1000m": true,
-        "layanan_terdekat": "LRT Jabodebek",
-        "latitude": -6.2489802,
-        "longitude": 106.9688466,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Perumahan%20Jakapermai%2C%20Jalan%20Raya%20Kalimalang%2C%20Jaka%20Sampurna%2C%20Bekasi%20Barat%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.2489802%2C106.9688466",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.2489802%2C106.9688466",
-        "tingkat_kepercayaan": "menengah",
-        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
-        "sumber_kontak": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.9688466,
-          -6.2489802
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama_ahr": "Perumahan Jatibening II",
-        "tipe_ahr": "residential",
-        "alamat": "Jalan Hanjuang VII Blok H7 , Jatibening Baru, Pondok Gede 117",
-        "status_sewa": "belum terverifikasi (kandidat OSM)",
-        "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/node/4242437067",
-        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
-        "osm_type": "node",
-        "osm_id": "4242437067",
-        "jarak_ke_jalur_m": 556.6,
-        "dalam_500m": false,
-        "dalam_700m": true,
-        "dalam_1000m": true,
-        "layanan_terdekat": "LRT Jabodebek",
-        "latitude": -6.2622479,
-        "longitude": 106.9386383,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Perumahan%20Jatibening%20II%2C%20Jalan%20Hanjuang%20VII%20Blok%20H7%20%2C%20Jatibening%20Baru%2C%20Pondok%20Gede%20117%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.2622479%2C106.9386383",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.2622479%2C106.9386383",
-        "tingkat_kepercayaan": "menengah",
-        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
-        "sumber_kontak": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.9386383,
-          -6.2622479
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "nama_ahr": "The 10 Residence",
         "tipe_ahr": "residential",
         "alamat": "Jl. Karet Karya",
@@ -175,74 +73,6 @@
     {
       "type": "Feature",
       "properties": {
-        "nama_ahr": "Pondok Hijau Permai",
-        "tipe_ahr": "residential",
-        "alamat": "Jalan Pondok Hijau Raya, Rawa Lumbu",
-        "status_sewa": "belum terverifikasi (kandidat OSM)",
-        "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/node/4243800689",
-        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
-        "osm_type": "node",
-        "osm_id": "4243800689",
-        "jarak_ke_jalur_m": 236.9,
-        "dalam_500m": true,
-        "dalam_700m": true,
-        "dalam_1000m": true,
-        "layanan_terdekat": "LRT Jabodebek",
-        "latitude": -6.263877,
-        "longitude": 107.0144553,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Pondok%20Hijau%20Permai%2C%20Jalan%20Pondok%20Hijau%20Raya%2C%20Rawa%20Lumbu%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.263877%2C107.0144553",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.263877%2C107.0144553",
-        "tingkat_kepercayaan": "menengah",
-        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
-        "sumber_kontak": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          107.0144553,
-          -6.263877
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama_ahr": "MT Haryono Residence Apartment (Main Entrance)",
-        "tipe_ahr": "apartments",
-        "alamat": "Jl. Otista 2 60",
-        "status_sewa": "belum terverifikasi (kandidat OSM)",
-        "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/node/4243800718",
-        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
-        "osm_type": "node",
-        "osm_id": "4243800718",
-        "jarak_ke_jalur_m": 135.6,
-        "dalam_500m": true,
-        "dalam_700m": true,
-        "dalam_1000m": true,
-        "layanan_terdekat": "LRT Jabodebek",
-        "latitude": -6.2435667,
-        "longitude": 106.8685556,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=MT%20Haryono%20Residence%20Apartment%20(Main%20Entrance)%2C%20Jl.%20Otista%202%2060%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.2435667%2C106.8685556",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.2435667%2C106.8685556",
-        "tingkat_kepercayaan": "tinggi",
-        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
-        "sumber_kontak": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.8685556,
-          -6.2435667
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "nama_ahr": "Park Royal Apartment",
         "tipe_ahr": "apartments",
         "alamat": "Jalan Jend. Gatot Subroto 35",
@@ -271,40 +101,6 @@
         "coordinates": [
           106.8092413,
           -6.2125641
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama_ahr": "Raffles Hills",
-        "tipe_ahr": "residential",
-        "alamat": "Jl. Boulevard Raffles Hills Blok HA, Cibubur, Harjamukti, 1",
-        "status_sewa": "belum terverifikasi (kandidat OSM)",
-        "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/node/4244018641",
-        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
-        "osm_type": "node",
-        "osm_id": "4244018641",
-        "jarak_ke_jalur_m": 848,
-        "dalam_500m": false,
-        "dalam_700m": false,
-        "dalam_1000m": true,
-        "layanan_terdekat": "LRT Jabodebek",
-        "latitude": -6.3760765,
-        "longitude": 106.9037498,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Raffles%20Hills%2C%20Jl.%20Boulevard%20Raffles%20Hills%20Blok%20HA%2C%20Cibubur%2C%20Harjamukti%2C%201%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.3760765%2C106.9037498",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.3760765%2C106.9037498",
-        "tingkat_kepercayaan": "menengah",
-        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
-        "sumber_kontak": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.9037498,
-          -6.3760765
         ]
       }
     },
@@ -475,40 +271,6 @@
         "coordinates": [
           106.8397777,
           -6.2238836
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama_ahr": "Mess Ba Wara",
-        "tipe_ahr": "residential",
-        "alamat": "<NA>",
-        "status_sewa": "belum terverifikasi (kandidat OSM)",
-        "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/relation/3075290",
-        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
-        "osm_type": "relation",
-        "osm_id": "3075290",
-        "jarak_ke_jalur_m": 275.2,
-        "dalam_500m": true,
-        "dalam_700m": true,
-        "dalam_1000m": true,
-        "layanan_terdekat": "LRT Jabodebek",
-        "latitude": -6.2442333,
-        "longitude": 106.8852109,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mess%20Ba%20Wara%2C%20%3CNA%3E%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.24423331192476%2C106.8852108947486",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.24423331192476%2C106.8852108947486",
-        "tingkat_kepercayaan": "menengah",
-        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
-        "sumber_kontak": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.8852108947486,
-          -6.24423331192476
         ]
       }
     },
@@ -753,40 +515,6 @@
     {
       "type": "Feature",
       "properties": {
-        "nama_ahr": "Wisma Millenia",
-        "tipe_ahr": "yes",
-        "alamat": "<NA>",
-        "status_sewa": "belum terverifikasi (kandidat OSM)",
-        "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/way/120390222",
-        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
-        "osm_type": "way",
-        "osm_id": "120390222",
-        "jarak_ke_jalur_m": 103.3,
-        "dalam_500m": true,
-        "dalam_700m": true,
-        "dalam_1000m": true,
-        "layanan_terdekat": "LRT Jabodebek",
-        "latitude": -6.242521,
-        "longitude": 106.8515388,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wisma%20Millenia%2C%20%3CNA%3E%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.242520950045785%2C106.8515387992557",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.242520950045785%2C106.8515387992557",
-        "tingkat_kepercayaan": "menengah",
-        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
-        "sumber_kontak": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.8515387992557,
-          -6.242520950045785
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "nama_ahr": "Mugi Griya",
         "tipe_ahr": "yes",
         "alamat": "<NA>",
@@ -815,40 +543,6 @@
         "coordinates": [
           106.84882470000144,
           -6.242750100044376
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama_ahr": "Wisma Intiland",
-        "tipe_ahr": "commercial",
-        "alamat": "Jalan Jend. Sudirman 32",
-        "status_sewa": "belum terverifikasi (kandidat OSM)",
-        "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/way/120827529",
-        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
-        "osm_type": "way",
-        "osm_id": "120827529",
-        "jarak_ke_jalur_m": 61.7,
-        "dalam_500m": true,
-        "dalam_700m": true,
-        "dalam_1000m": true,
-        "layanan_terdekat": "MRT Jakarta",
-        "latitude": -6.2144018,
-        "longitude": 106.8177151,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wisma%20Intiland%2C%20Jalan%20Jend.%20Sudirman%2032%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.214401802398626%2C106.81771507080333",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.214401802398626%2C106.81771507080333",
-        "tingkat_kepercayaan": "menengah",
-        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
-        "sumber_kontak": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.81771507080333,
-          -6.214401802398626
         ]
       }
     },
@@ -3439,40 +3133,6 @@
     {
       "type": "Feature",
       "properties": {
-        "nama_ahr": "Wisma Lestari",
-        "tipe_ahr": "residential",
-        "alamat": "<NA>",
-        "status_sewa": "belum terverifikasi (kandidat OSM)",
-        "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/way/482164152",
-        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
-        "osm_type": "way",
-        "osm_id": "482164152",
-        "jarak_ke_jalur_m": 523.8,
-        "dalam_500m": false,
-        "dalam_700m": true,
-        "dalam_1000m": true,
-        "layanan_terdekat": "LRT Jabodebek",
-        "latitude": -6.2182071,
-        "longitude": 106.8262202,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Wisma%20Lestari%2C%20%3CNA%3E%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.218207100030184%2C106.82622015000993",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.218207100030184%2C106.82622015000993",
-        "tingkat_kepercayaan": "menengah",
-        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
-        "sumber_kontak": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.82622015000993,
-          -6.218207100030184
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "nama_ahr": "Iresidence Guest House Kebon Kacang",
         "tipe_ahr": "residential",
         "alamat": "<NA>",
@@ -3569,40 +3229,6 @@
         "coordinates": [
           106.81925626675016,
           -6.222429200979263
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama_ahr": "The Newton 1",
-        "tipe_ahr": "residential",
-        "alamat": "<NA>",
-        "status_sewa": "belum terverifikasi (kandidat OSM)",
-        "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/way/484647525",
-        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
-        "osm_type": "way",
-        "osm_id": "484647525",
-        "jarak_ke_jalur_m": 562.5,
-        "dalam_500m": false,
-        "dalam_700m": true,
-        "dalam_1000m": true,
-        "layanan_terdekat": "MRT Jakarta",
-        "latitude": -6.2210969,
-        "longitude": 106.8186086,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=The%20Newton%201%2C%20%3CNA%3E%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.221096860304583%2C106.81860860175942",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.221096860304583%2C106.81860860175942",
-        "tingkat_kepercayaan": "menengah",
-        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
-        "sumber_kontak": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.81860860175942,
-          -6.221096860304583
         ]
       }
     },
@@ -3977,40 +3603,6 @@
         "coordinates": [
           106.83430230691246,
           -6.214236200004503
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama_ahr": "The Pakubuwono Menteng",
-        "tipe_ahr": "residential",
-        "alamat": "<NA>",
-        "status_sewa": "belum terverifikasi (kandidat OSM)",
-        "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/way/485997842",
-        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
-        "osm_type": "way",
-        "osm_id": "485997842",
-        "jarak_ke_jalur_m": 642.6,
-        "dalam_500m": false,
-        "dalam_700m": true,
-        "dalam_1000m": true,
-        "layanan_terdekat": "MRT Jakarta",
-        "latitude": -6.1861246,
-        "longitude": 106.8261564,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=The%20Pakubuwono%20Menteng%2C%20%3CNA%3E%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.186124550071552%2C106.82615639599362",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.186124550071552%2C106.82615639599362",
-        "tingkat_kepercayaan": "menengah",
-        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
-        "sumber_kontak": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.82615639599362,
-          -6.186124550071552
         ]
       }
     },
@@ -4629,40 +4221,6 @@
     {
       "type": "Feature",
       "properties": {
-        "nama_ahr": "Mess PU Jalan Haryono V",
-        "tipe_ahr": "apartments",
-        "alamat": "<NA>",
-        "status_sewa": "belum terverifikasi (kandidat OSM)",
-        "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/way/498424550",
-        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
-        "osm_type": "way",
-        "osm_id": "498424550",
-        "jarak_ke_jalur_m": 381.8,
-        "dalam_500m": true,
-        "dalam_700m": true,
-        "dalam_1000m": true,
-        "layanan_terdekat": "MRT Jakarta",
-        "latitude": -6.2857844,
-        "longitude": 106.774043,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mess%20PU%20Jalan%20Haryono%20V%2C%20%3CNA%3E%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.285784400081214%2C106.77404297528341",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.285784400081214%2C106.77404297528341",
-        "tingkat_kepercayaan": "tinggi",
-        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
-        "sumber_kontak": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.77404297528341,
-          -6.285784400081214
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "nama_ahr": "La Maison Barito",
         "tipe_ahr": "apartments",
         "alamat": "Jalan Barito II",
@@ -4765,25 +4323,25 @@
     {
       "type": "Feature",
       "properties": {
-        "nama_ahr": "Mess Cendrawasih",
-        "tipe_ahr": "residential",
-        "alamat": "<NA>",
+        "nama_ahr": "Rumah Zaky",
+        "tipe_ahr": "house",
+        "alamat": "Jalan Haji Abdul Gani 58",
         "status_sewa": "belum terverifikasi (kandidat OSM)",
         "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/way/503700758",
+        "url_sumber": "https://www.openstreetmap.org/way/503661860",
         "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
         "osm_type": "way",
-        "osm_id": "503700758",
-        "jarak_ke_jalur_m": 480.3,
+        "osm_id": "503661860",
+        "jarak_ke_jalur_m": 299.3,
         "dalam_500m": true,
         "dalam_700m": true,
         "dalam_1000m": true,
         "layanan_terdekat": "LRT Jabodebek",
-        "latitude": -6.2516166,
-        "longitude": 106.8831436,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Mess%20Cendrawasih%2C%20%3CNA%3E%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.251616593466479%2C106.88314355717309",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.251616593466479%2C106.88314355717309",
+        "latitude": -6.2739852,
+        "longitude": 106.8760189,
+        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Rumah%20Zaky%2C%20Jalan%20Haji%20Abdul%20Gani%2058%2C%20Indonesia",
+        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.273985199486791%2C106.87601894380781",
+        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.273985199486791%2C106.87601894380781",
         "tingkat_kepercayaan": "menengah",
         "status_verifikasi": "kandidat AHR terkurasi dari OSM",
         "sumber_kontak": null
@@ -4791,8 +4349,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.88314355717309,
-          -6.251616593466479
+          106.87601894380781,
+          -6.273985199486791
         ]
       }
     },
@@ -5235,6 +4793,74 @@
         "coordinates": [
           106.79081066607502,
           -6.282607299997202
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_ahr": "Kontrakan Bu Gito",
+        "tipe_ahr": "house",
+        "alamat": "GG Firman 43A-D",
+        "status_sewa": "belum terverifikasi (kandidat OSM)",
+        "kontak_telepon": null,
+        "url_sumber": "https://www.openstreetmap.org/way/517827707",
+        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
+        "osm_type": "way",
+        "osm_id": "517827707",
+        "jarak_ke_jalur_m": 966.2,
+        "dalam_500m": false,
+        "dalam_700m": false,
+        "dalam_1000m": true,
+        "layanan_terdekat": "LRT Jabodebek",
+        "latitude": -6.3178805,
+        "longitude": 106.877565,
+        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Kontrakan%20Bu%20Gito%2C%20GG%20Firman%2043A-D%2C%20Indonesia",
+        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.317880547562701%2C106.8775649758521",
+        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.317880547562701%2C106.8775649758521",
+        "tingkat_kepercayaan": "menengah",
+        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
+        "sumber_kontak": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8775649758521,
+          -6.317880547562701
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_ahr": "Kontrakan Bu Gito",
+        "tipe_ahr": "house",
+        "alamat": "Gang Firman 43",
+        "status_sewa": "belum terverifikasi (kandidat OSM)",
+        "kontak_telepon": null,
+        "url_sumber": "https://www.openstreetmap.org/way/517827726",
+        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
+        "osm_type": "way",
+        "osm_id": "517827726",
+        "jarak_ke_jalur_m": 989.5,
+        "dalam_500m": false,
+        "dalam_700m": false,
+        "dalam_1000m": true,
+        "layanan_terdekat": "LRT Jabodebek",
+        "latitude": -6.317891,
+        "longitude": 106.8773525,
+        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Kontrakan%20Bu%20Gito%2C%20Gang%20Firman%2043%2C%20Indonesia",
+        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.317890991373559%2C106.87735254110494",
+        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.317890991373559%2C106.87735254110494",
+        "tingkat_kepercayaan": "menengah",
+        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
+        "sumber_kontak": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.87735254110494,
+          -6.317890991373559
         ]
       }
     },
@@ -5977,7 +5603,6 @@
         "tingkat_kepercayaan": "menengah",
         "status_verifikasi": "nama AHR dan kontak terverifikasi dari sumber publik",
         "sumber_kontak": "Sikumbang Tapera / situs resmi",
-        "url_resmi": "https://arumaya.co.id/",
         "kontak_tambahan": [
           "0816 3333 51"
         ],
@@ -6194,40 +5819,6 @@
         "coordinates": [
           106.81708742435018,
           -6.197006785240753
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama_ahr": "Le Parc Terrace",
-        "tipe_ahr": "residential",
-        "alamat": "<NA>",
-        "status_sewa": "belum terverifikasi (kandidat OSM)",
-        "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/way/851599137",
-        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
-        "osm_type": "way",
-        "osm_id": "851599137",
-        "jarak_ke_jalur_m": 295.9,
-        "dalam_500m": true,
-        "dalam_700m": true,
-        "dalam_1000m": true,
-        "layanan_terdekat": "MRT Jakarta",
-        "latitude": -6.1979738,
-        "longitude": 106.8204156,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Le%20Parc%20Terrace%2C%20%3CNA%3E%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.197973771093136%2C106.82041561848362",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.197973771093136%2C106.82041561848362",
-        "tingkat_kepercayaan": "menengah",
-        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
-        "sumber_kontak": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.82041561848362,
-          -6.197973771093136
         ]
       }
     },
@@ -6642,6 +6233,40 @@
     {
       "type": "Feature",
       "properties": {
+        "nama_ahr": "Rumah Haji Kayun",
+        "tipe_ahr": "house",
+        "alamat": "Gang Pos 9/9 No. 17 RT.9 RW.9",
+        "status_sewa": "belum terverifikasi (kandidat OSM)",
+        "kontak_telepon": null,
+        "url_sumber": "https://www.openstreetmap.org/way/1032481012",
+        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
+        "osm_type": "way",
+        "osm_id": "1032481012",
+        "jarak_ke_jalur_m": 438.3,
+        "dalam_500m": true,
+        "dalam_700m": true,
+        "dalam_1000m": true,
+        "layanan_terdekat": "LRT Jabodebek",
+        "latitude": -6.2591062,
+        "longitude": 106.8774606,
+        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Rumah%20Haji%20Kayun%2C%20Gang%20Pos%209%2F9%20No.%2017%20RT.9%20RW.9%2C%20Indonesia",
+        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.259106162479082%2C106.87746056082896",
+        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.259106162479082%2C106.87746056082896",
+        "tingkat_kepercayaan": "menengah",
+        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
+        "sumber_kontak": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.87746056082896,
+          -6.259106162479082
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
         "nama_ahr": "Apartemen Mangkuluhur City Semanggi",
         "tipe_ahr": "apartments",
         "alamat": "<NA>",
@@ -6670,40 +6295,6 @@
         "coordinates": [
           106.81443297654562,
           -6.221487450266647
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama_ahr": "Perumahan Dinas Kwarnas",
-        "tipe_ahr": "hunian",
-        "alamat": "<NA>",
-        "status_sewa": "belum terverifikasi (kandidat OSM)",
-        "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/way/1042838153",
-        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
-        "osm_type": "way",
-        "osm_id": "1042838153",
-        "jarak_ke_jalur_m": 645.1,
-        "dalam_500m": false,
-        "dalam_700m": true,
-        "dalam_1000m": true,
-        "layanan_terdekat": "LRT Jabodebek",
-        "latitude": -6.3685864,
-        "longitude": 106.888829,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Perumahan%20Dinas%20Kwarnas%2C%20%3CNA%3E%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.368586449912035%2C106.88882902382005",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.368586449912035%2C106.88882902382005",
-        "tingkat_kepercayaan": "menengah",
-        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
-        "sumber_kontak": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.88882902382005,
-          -6.368586449912035
         ]
       }
     },
@@ -7004,7 +6595,6 @@
         "tingkat_kepercayaan": "tinggi",
         "status_verifikasi": "nama AHR dan kontak terverifikasi dari sumber publik",
         "sumber_kontak": "situs resmi Apartemen Plaza Senayan",
-        "url_resmi": "https://apartemenplazasenayan.com",
         "kontak_tambahan": [
           "021 572 3377",
           "021 2952 5522"
@@ -7284,7 +6874,6 @@
         "tingkat_kepercayaan": "tinggi",
         "status_verifikasi": "nama AHR dan kontak terverifikasi dari sumber publik",
         "sumber_kontak": "situs resmi South Hills",
-        "url_resmi": "https://www.southhills.co.id",
         "kontak_tambahan": [],
         "jenis_kontak": "pengelola",
         "url_kontak": "https://southhills.co.id/contact.html",
@@ -8049,40 +7638,6 @@
     {
       "type": "Feature",
       "properties": {
-        "nama_ahr": "Komplek Koperasi",
-        "tipe_ahr": "hunian",
-        "alamat": "<NA>",
-        "status_sewa": "belum terverifikasi (kandidat OSM)",
-        "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/way/1338629763",
-        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
-        "osm_type": "way",
-        "osm_id": "1338629763",
-        "jarak_ke_jalur_m": 557.3,
-        "dalam_500m": false,
-        "dalam_700m": true,
-        "dalam_1000m": true,
-        "layanan_terdekat": "MRT Jakarta",
-        "latitude": -6.2975054,
-        "longitude": 106.791271,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Komplek%20Koperasi%2C%20%3CNA%3E%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.297505421313818%2C106.79127101823642",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.297505421313818%2C106.79127101823642",
-        "tingkat_kepercayaan": "menengah",
-        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
-        "sumber_kontak": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          106.79127101823642,
-          -6.297505421313818
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
         "nama_ahr": "Kanaka Residence",
         "tipe_ahr": "hunian",
         "alamat": "<NA>",
@@ -8355,25 +7910,25 @@
     {
       "type": "Feature",
       "properties": {
-        "nama_ahr": "Perumahan Taman Permata",
-        "tipe_ahr": "hunian",
+        "nama_ahr": "Rumah Reino",
+        "tipe_ahr": "house",
         "alamat": "<NA>",
         "status_sewa": "belum terverifikasi (kandidat OSM)",
         "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/way/1476528020",
+        "url_sumber": "https://www.openstreetmap.org/way/1498799383",
         "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
         "osm_type": "way",
-        "osm_id": "1476528020",
-        "jarak_ke_jalur_m": 826.7,
+        "osm_id": "1498799383",
+        "jarak_ke_jalur_m": 611.2,
         "dalam_500m": false,
-        "dalam_700m": false,
+        "dalam_700m": true,
         "dalam_1000m": true,
         "layanan_terdekat": "LRT Jabodebek",
-        "latitude": -6.2962888,
-        "longitude": 106.8738344,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Perumahan%20Taman%20Permata%2C%20%3CNA%3E%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.296288832657975%2C106.87383441200848",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.296288832657975%2C106.87383441200848",
+        "latitude": -6.2184448,
+        "longitude": 106.8254644,
+        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Rumah%20Reino%2C%20%3CNA%3E%2C%20Indonesia",
+        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.218444843828358%2C106.82546440893029",
+        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.218444843828358%2C106.82546440893029",
         "tingkat_kepercayaan": "menengah",
         "status_verifikasi": "kandidat AHR terkurasi dari OSM",
         "sumber_kontak": null
@@ -8381,8 +7936,76 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          106.87383441200848,
-          -6.296288832657975
+          106.82546440893029,
+          -6.218444843828358
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_ahr": "Rumah Bondan",
+        "tipe_ahr": "house",
+        "alamat": "<NA>",
+        "status_sewa": "belum terverifikasi (kandidat OSM)",
+        "kontak_telepon": null,
+        "url_sumber": "https://www.openstreetmap.org/way/1498799384",
+        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
+        "osm_type": "way",
+        "osm_id": "1498799384",
+        "jarak_ke_jalur_m": 609.7,
+        "dalam_500m": false,
+        "dalam_700m": true,
+        "dalam_1000m": true,
+        "layanan_terdekat": "LRT Jabodebek",
+        "latitude": -6.2184766,
+        "longitude": 106.8254855,
+        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Rumah%20Bondan%2C%20%3CNA%3E%2C%20Indonesia",
+        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.218476551290582%2C106.8254854764713",
+        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.218476551290582%2C106.8254854764713",
+        "tingkat_kepercayaan": "menengah",
+        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
+        "sumber_kontak": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.8254854764713,
+          -6.218476551290582
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_ahr": "Rumah Nenek Reino",
+        "tipe_ahr": "house",
+        "alamat": "<NA>",
+        "status_sewa": "belum terverifikasi (kandidat OSM)",
+        "kontak_telepon": null,
+        "url_sumber": "https://www.openstreetmap.org/way/1498799385",
+        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
+        "osm_type": "way",
+        "osm_id": "1498799385",
+        "jarak_ke_jalur_m": 629.8,
+        "dalam_500m": false,
+        "dalam_700m": true,
+        "dalam_1000m": true,
+        "layanan_terdekat": "LRT Jabodebek",
+        "latitude": -6.2185612,
+        "longitude": 106.8253185,
+        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Rumah%20Nenek%20Reino%2C%20%3CNA%3E%2C%20Indonesia",
+        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.218561245063682%2C106.825318479207",
+        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.218561245063682%2C106.825318479207",
+        "tingkat_kepercayaan": "menengah",
+        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
+        "sumber_kontak": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.825318479207,
+          -6.218561245063682
         ]
       }
     },
@@ -8417,6 +8040,40 @@
         "coordinates": [
           106.83679807246773,
           -6.21859233029801
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nama_ahr": "rumah ghalang",
+        "tipe_ahr": "house",
+        "alamat": "<NA>",
+        "status_sewa": "belum terverifikasi (kandidat OSM)",
+        "kontak_telepon": null,
+        "url_sumber": "https://www.openstreetmap.org/way/1499487676",
+        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
+        "osm_type": "way",
+        "osm_id": "1499487676",
+        "jarak_ke_jalur_m": 770.3,
+        "dalam_500m": false,
+        "dalam_700m": false,
+        "dalam_1000m": true,
+        "layanan_terdekat": "LRT Jabodebek",
+        "latitude": -6.2238415,
+        "longitude": 106.8398524,
+        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=rumah%20ghalang%2C%20%3CNA%3E%2C%20Indonesia",
+        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.223841501807035%2C106.83985238249882",
+        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.223841501807035%2C106.83985238249882",
+        "tingkat_kepercayaan": "menengah",
+        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
+        "sumber_kontak": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.83985238249882,
+          -6.223841501807035
         ]
       }
     },
@@ -8519,74 +8176,6 @@
         "coordinates": [
           107.0252879827153,
           -6.260200080572854
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama_ahr": "Komplek Pengairan Rawa Semut",
-        "tipe_ahr": "hunian",
-        "alamat": "<NA>",
-        "status_sewa": "belum terverifikasi (kandidat OSM)",
-        "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/way/1508983763",
-        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
-        "osm_type": "way",
-        "osm_id": "1508983763",
-        "jarak_ke_jalur_m": 145.7,
-        "dalam_500m": true,
-        "dalam_700m": true,
-        "dalam_1000m": true,
-        "layanan_terdekat": "LRT Jabodebek",
-        "latitude": -6.2601373,
-        "longitude": 107.0144002,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Komplek%20Pengairan%20Rawa%20Semut%2C%20%3CNA%3E%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.260137336299543%2C107.01440017617423",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.260137336299543%2C107.01440017617423",
-        "tingkat_kepercayaan": "menengah",
-        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
-        "sumber_kontak": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          107.01440017617423,
-          -6.260137336299543
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "nama_ahr": "Perumahan Margahayu Jaya",
-        "tipe_ahr": "hunian",
-        "alamat": "<NA>",
-        "status_sewa": "belum terverifikasi (kandidat OSM)",
-        "kontak_telepon": null,
-        "url_sumber": "https://www.openstreetmap.org/way/1508983766",
-        "tanggal_akses": "2026-08-05T07:33:37.864840+00:00",
-        "osm_type": "way",
-        "osm_id": "1508983766",
-        "jarak_ke_jalur_m": 889.3,
-        "dalam_500m": false,
-        "dalam_700m": false,
-        "dalam_1000m": true,
-        "layanan_terdekat": "LRT Jabodebek",
-        "latitude": -6.2546398,
-        "longitude": 107.0190387,
-        "google_maps_url": "https://www.google.com/maps/search/?api=1&query=Perumahan%20Margahayu%20Jaya%2C%20%3CNA%3E%2C%20Indonesia",
-        "google_maps_pin_url": "https://www.google.com/maps/search/?api=1&query=-6.254639849758528%2C107.01903873477276",
-        "google_directions_url": "https://www.google.com/maps/dir/?api=1&destination=-6.254639849758528%2C107.01903873477276",
-        "tingkat_kepercayaan": "menengah",
-        "status_verifikasi": "kandidat AHR terkurasi dari OSM",
-        "sumber_kontak": null
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          107.01903873477276,
-          -6.254639849758528
         ]
       }
     }

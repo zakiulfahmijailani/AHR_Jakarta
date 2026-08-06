@@ -5,9 +5,11 @@ const outputPath = "public/data/ahr_terkurasi_gratis.geojson";
 
 const source = JSON.parse(await readFile(sourcePath, "utf8"));
 
-const housingName = /(apart(e)?men|apartment|residen(ce|si|tial)|mansion|rumah susun|rusun|perumahan|housing|kompleks|komplek|cluster|condominium|condo|\btower\b|\bkost\b|\bkos\b|indekos|boarding|guest\s*house|hostel|dorm|asrama|\bmess\b|\bwisma\b|\bgriya\b|\bvilla\b|paviliun|\bhome\b)/i;
+// Nama yang menunjuk bangunan/unit hunian, bukan kawasan permukiman secara umum.
+const housingName = /(apart(e)?men|apartment|residen(ce|si|tial)|mansion|rumah susun|rusun|condominium|condo|\btower\b|\bkost\b|\bkos\b|indekos|boarding|guest\s*house|hostel|townhome|\bgriya\b|\bvilla\b|paviliun|\bhome\b)/i;
+const individualHouseName = /(\brumah\b|\bhome\b|\bvilla\b|\bkontrakan\b|\bkost\b|\bkos\b|indekos|guest\s*house|paviliun|\bgriya\b)/i;
+const areaOrFacilityName = /(kompleks|komplek|perumahan|housing\s*(estate)?|\bcluster\b|main\s*entrance|\bentrance\b|\bgate\b|gerbang|rumah\s*dinas|\bmess\b|\basrama\b)/i;
 const clearlyNotHousing = /(starbucks|kedutaan|embassy|cafe|coffee|restaurant|restoran|\bbar\b|school|sekolah|kindergarten|mosque|masjid|church|gereja|\bbank\b|office|kantor|store|toko|shop|clinic|klinik|hospital|rumah sakit|university|universitas|bbq|dapoer|warung|salon|studio|showroom)/i;
-const trustedBuildingTypes = new Set(["apartments", "residential"]);
 
 function missing(value) {
   return value == null || ["", "<NA>", "nan", "none", "undefined"].includes(String(value).trim().toLowerCase());
@@ -29,8 +31,12 @@ const features = source.features
     const properties = feature.properties ?? {};
     const name = String(properties.nama_ahr ?? "").trim();
     const type = String(properties.tipe_ahr ?? "").toLowerCase();
-    if (!name || name.startsWith("Kandidat AHR OSM") || clearlyNotHousing.test(name)) return false;
-    return trustedBuildingTypes.has(type) || housingName.test(name);
+    if (!name || name.startsWith("Kandidat AHR OSM") || clearlyNotHousing.test(name) || areaOrFacilityName.test(name)) return false;
+    if (type === "apartments") return true;
+    if (type === "residential") return housingName.test(name);
+    if (type === "house") return individualHouseName.test(name);
+    if (["commercial", "office", "retail", "yes"].includes(type)) return housingName.test(name) && !/^wisma\b/i.test(name);
+    return housingName.test(name);
   })
   .map((feature) => {
     const properties = feature.properties ?? {};
